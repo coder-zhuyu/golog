@@ -95,6 +95,9 @@ func NewLoggerHandler(fileName string, rotateConf *RotateConf) (*Logger, error) 
         atomLevel:  atomLevel,
     }
 
+    root = logger
+    //*root = *logger
+
     return logger, nil
 }
 
