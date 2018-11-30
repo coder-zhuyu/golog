@@ -14,3 +14,8 @@ func TestLogger(t *testing.T) {
     logger.Info("2222", "k", "v")
     logger.Error("4444")
 }
+
+func TestRoot(t *testing.T) {
+    Debug("debug", "name", "zy", "age", 10)
+    Info("info", "name", "zy", "age", 10)
+}

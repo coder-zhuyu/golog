@@ -1,7 +1,19 @@
 package log
 
+import (
+    "go.uber.org/zap"
+    "go.uber.org/zap/zapcore"
+    "os"
+)
+
 var (
-    root *Logger
+    root = &Logger{
+        logger: zap.New(zapcore.NewCore(
+            zapcore.NewConsoleEncoder(zap.NewDevelopmentEncoderConfig()),
+            os.Stdout,
+            zap.NewAtomicLevelAt(zapcore.DebugLevel),
+        )).Sugar(),
+    }
 )
 
 func Debug(msg string, keysAndValues ...interface{}) {
