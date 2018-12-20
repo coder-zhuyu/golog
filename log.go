@@ -87,7 +87,7 @@ func NewLoggerHandler(fileName string, rotateConf *RotateConf) (*Logger, error) 
         w,
         atomLevel,
     )
-    sugarLogger := zap.New(core, zap.AddCaller()).Sugar()
+    sugarLogger := zap.New(core, zap.AddCaller(), zap.AddCallerSkip(1)).Sugar()
     atomLevel.SetLevel(zapcore.DebugLevel)
 
     logger := &Logger{
